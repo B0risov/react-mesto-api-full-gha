@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.32.56
+IP 158.160.32.56
 
 Frontend https://B0risov.nomoredomains.work
 
