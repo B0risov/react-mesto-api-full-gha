@@ -16,7 +16,7 @@ const NotFound = require('./errors/notFound');
 const { regexUrl, allowedCors } = require('./constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 80, CONNECT = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT = 3000, CONNECT = 'mongodb://localhost:27017/mestodb' } = process.env;
 const app = express();
 
 const limiter = rateLimit({
