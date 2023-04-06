@@ -7,7 +7,7 @@ const BadRequest = require('../errors/badRequest');
 const Conflict = require('../errors/conflict');
 require('dotenv').config();
 
-const { NODE_ENV, JWT_SECRET = 'super-strong-secret' } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getUsers = async (req, res, next) => {
   try {
@@ -121,7 +121,7 @@ const login = async (req, res, next) => {
     if (isUserValid) {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret',
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
         { expiresIn: '7d' },
       );
 

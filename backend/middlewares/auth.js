@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const Authorization = require('../errors/authorization');
 require('dotenv').config();
 
-const { NODE_ENV, JWT_SECRET = 'super-strong-secret' } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const auth = (req, res, next) => {
   let payload;
@@ -14,7 +14,7 @@ const auth = (req, res, next) => {
     const token = authorization.replace('Bearer ', '');
     payload = jwt.verify(
       token,
-      NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret',
+      NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
     );
   } catch (err) {
     return next(new Authorization('Необходима авторизация'));
